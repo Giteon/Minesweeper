@@ -1,4 +1,5 @@
 import de.bezier.guido.*;
+public boolean gameOver = false;
 public final static int NUM_COLS = 20;
 public final static int NUM_ROWS = 20;
 private MSButton[][] buttons; //2d array of minesweeper buttons
@@ -61,7 +62,9 @@ public boolean isWon()
 }
 public void displayLosingMessage()
 {
-    //your code here
+   
+  gameOver = true;
+   
 }
 public void displayWinningMessage()
 {
@@ -99,7 +102,6 @@ public class MSButton
     
     public void mousePressed () 
     {
-        
         if (marked)
         {
  if (mousePressed == true && mouseButton == RIGHT && label == "")
@@ -163,7 +165,19 @@ buttons[r+rr][c+cc].mousePressed();
         {
             fill( 100 );
         }
-
+if (gameOver)
+{
+    pushStyle();
+    fill((int)(Math.random()*256),(int)(Math.random()*256),(int)(Math.random()*256));
+    textSize(30);
+     text("GAME OVER HAHAHAHA",200,200+(int)(Math.random()*10-5));
+     popStyle();
+    rect(0,0,width,height);
+    x += (int)(Math.random()*4-2);
+    y += (int)(Math.random()*4-2);
+    label = "" + (int)(Math.random()*99);
+   
+}
         rect(x, y, width, height);
         fill(0);
         text(label,x+width/2,y+height/2);
