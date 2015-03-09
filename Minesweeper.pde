@@ -1,21 +1,21 @@
 import de.bezier.guido.*;
 public boolean gameOver = false;
-public final static int NUM_COLS = 20;
-public final static int NUM_ROWS = 20;
+public final static int NUM_COLS = 40;
+public final static int NUM_ROWS = 40;
 private MSButton[][] buttons; //2d array of minesweeper buttons
 private ArrayList <MSButton> bombs = new ArrayList <MSButton>();
 void setup ()
 {
-    size(400, 400);
+    size(640, 640);
     textAlign(CENTER,CENTER);
     
     // make the manager
     Interactive.make( this );
 
-    /*make apartments*/ buttons = new MSButton[20][20];
-    for (int row = 0; row < 20; row ++)
+    /*make apartments*/ buttons = new MSButton[40][40];
+    for (int row = 0; row < 40; row ++)
     {
-        for (int col = 0; col < 20; col ++)
+        for (int col = 0; col < 40; col ++)
         {
          /*fill apartments*/ buttons[row][col] = new MSButton(row,col);
      }
@@ -25,7 +25,7 @@ void setup ()
 }
 public void setBombs()
 {
-    for (int b = 0; b < 50; b++) //number of bombs
+    for (int b = 0; b < 250; b++) //number of bombs
     {
     int r = ((int)(Math.random()*NUM_ROWS));
     int c = ((int)(Math.random()*NUM_COLS));
@@ -48,9 +48,9 @@ public void draw ()
 }
 public boolean isWon()
 {
-      for (int row = 0; row < 20; row ++)
+      for (int row = 0; row < 40; row ++)
     {
-        for (int col = 0; col < 20; col ++)
+        for (int col = 0; col < 40; col ++)
         {
             if (buttons[row][col].isMarked())
             {
@@ -80,8 +80,8 @@ public class MSButton
     
     public MSButton ( int rr, int cc )
     {
-        width = 400/NUM_COLS;
-        height = 400/NUM_ROWS;
+        width = 640/NUM_COLS;
+        height = 640/NUM_ROWS;
         r = rr;
         c = cc; 
         x = c*width;
@@ -169,8 +169,8 @@ if (gameOver)
 {
     pushStyle();
     fill((int)(Math.random()*256),(int)(Math.random()*256),(int)(Math.random()*256));
-    textSize(30);
-     text("GAME OVER HAHAHAHA",200,200+(int)(Math.random()*10-5));
+    textSize(40);
+     text("GAME OVER HAHAHAHA",350,200+(int)(Math.random()*10-5));
      popStyle();
     rect(0,0,width,height);
     x += (int)(Math.random()*4-2);
@@ -188,7 +188,7 @@ if (gameOver)
     }
     public boolean isValid(int r, int c)
     {
-        if (r < 20 && c < 20 & r >= 0 && c >= 0)
+        if (r < 40 && c < 40 & r >= 0 && c >= 0)
         {
             return true;
         }
