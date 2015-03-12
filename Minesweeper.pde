@@ -25,7 +25,7 @@ void setup ()
 }
 public void setBombs()
 {
-    for (int b = 0; b < 250; b++) //number of bombs
+    for (int b = 0; b < 240; b++) //number of bombs
     {
     int r = ((int)(Math.random()*NUM_ROWS));
     int c = ((int)(Math.random()*NUM_COLS));
@@ -52,13 +52,13 @@ public boolean isWon()
     {
         for (int col = 0; col < 40; col ++)
         {
-            if (buttons[row][col].isMarked())
+            if (!buttons[row][col].isMarked()&&!buttons[row][col].isClicked())
             {
-                return true;
+                return false;
             }
         }
     }
-    return false;
+    return true;
 }
 public void displayLosingMessage()
 {
@@ -68,7 +68,15 @@ public void displayLosingMessage()
 }
 public void displayWinningMessage()
 {
-    //your code here
+  
+   buttons[20][16].setLabel("Y");
+   buttons[20][17].setLabel("O");
+   buttons[20][18].setLabel("U");
+   
+   buttons[20][20].setLabel("W");
+   buttons[20][21].setLabel("I");
+   buttons[20][22].setLabel("N");
+   buttons[20][23].setLabel("!");
 }
 
 public class MSButton
