@@ -25,7 +25,7 @@ void setup ()
 }
 public void setBombs()
 {
-    for (int b = 0; b < 240; b++) //number of bombs
+    for (int b = 0; b < 100; b++) //number of bombs
     {
     int r = ((int)(Math.random()*NUM_ROWS));
     int c = ((int)(Math.random()*NUM_COLS));
