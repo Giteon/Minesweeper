@@ -25,7 +25,7 @@ void setup ()
 }
 public void setBombs()
 {
-    for (int b = 0; b < 100; b++) //number of bombs
+    for (int b = 0; b < 200; b++) //number of bombs
     {
     int r = ((int)(Math.random()*NUM_ROWS));
     int c = ((int)(Math.random()*NUM_COLS));
@@ -178,7 +178,7 @@ if (gameOver)
     pushStyle();
     fill((int)(Math.random()*256),(int)(Math.random()*256),(int)(Math.random()*256));
     textSize(40);
-     text("GAME OVER HAHAHAHA",350,200+(int)(Math.random()*10-5));
+     text("GAME OVER",350,200+(int)(Math.random()*10-5));
      popStyle();
     rect(0,0,width,height);
     x += (int)(Math.random()*4-2);
